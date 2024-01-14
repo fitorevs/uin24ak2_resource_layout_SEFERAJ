@@ -34,7 +34,7 @@
                     node.innerHTML = `<h2>${data.category}</h2><p>${data.text}</p>` 
                     node.innerHTML += "<ul>"
                     data.sources.map(source => {
-                        node.innerHTML += `<li><a href="${source.url}">${source.title}</a></li>`;
+                        node.innerHTML += `<li><a href="${source.url}">${source.title}</a></li>`
                     })
                     node.innerHTML += "</ul>"
                     categoryInfo.appendChild(node)

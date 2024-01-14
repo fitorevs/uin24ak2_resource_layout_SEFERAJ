@@ -35,14 +35,15 @@ main h2 {
     font-weight: 700;
     background-color: var(--dark-blue);
     padding: 1rem;
-    margin: 1rem;
+    margin: 2rem;
     justify-content: center;
     font-size: var(--font-size);  
 }
 
 main section {
-    width: 100%;
-    justify-content: center;
+    margin: 0 auto;
+    width: 100%;        
+    padding: 2rem;
     text-align: center;
 }
 
@@ -53,11 +54,6 @@ main section ul{
 main h2:hover {
     background-color: var(--white);
     color: var(--dark-blue);
-}
-
-#article {
-    margin: 0 auto;
-    background-color: var(--white);
 }
 
 
