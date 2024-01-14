@@ -7,26 +7,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <nav>
+        </nav>
+    </header>
     <div id="container">
-        <header>
-            <nav>
-            </nav>
-        </header>
         <main>
             <section>
                 <ul class="category" id="categoryList"></ul>
                 <article id="article"></article>
             </section>
         </main>
-        <footer>
-        </footer>
     </div>
+    <footer>
+    </footer>
+
     <script src="ressurser.js"></script> 
     <script>
         let categoryClicked = "HTML"
         function makeCategoryInfo() {
             let categoryInfo = document.getElementById("article")
-            categoryInfo.textContent = ""
+            categoryInfo.innerHTML = ""
             resources.map(data => {
                 if (data.category === categoryClicked) {
                     let node = document.createElement("div")
