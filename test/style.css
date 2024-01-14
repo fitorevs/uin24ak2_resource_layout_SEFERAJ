@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-blue: #2A324B;
+    --blue: #58699D;
+    --light-blue: #e1e5ee;
+    --white: #fff; 
+
+    --font: "Montserrat", sans-serif;
+    --font-size: 18px;
+}
+
+body {
+    background-color: var(--light-blue);
+    font-family: var(--font);
+}
+
+#container {
+    display: grid;
+    grid-template-areas: "header" "main" "footer";
+}
+
+header {
+    grid-area: header
+}
+
+main {
+    grid-area: main;
+}
+
+#categoryList h2 {
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 600;
+    background-color: var(--dark-blue);
+    padding: 1rem;
+    margin: 1rem;
+    justify-content: center;
+    font-size: var(--font-size);  
+}
+
+ul.category {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+}
+
+#categoryList h2:hover {
+    background-color: var(--white);
+    color: var(--dark-blue);
+}
+
+footer {
+    grid-area: footer;
+}
+
+@media only screen and (min-width: 600px) {
+    #container {
+        grid-template-areas: "header header header" "main main main" "footer footer footer";
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 40vw;
+
+    }
+
+    main section {
+        flex-basis: 100%;
+        margin: 0 auto;
+    }
+
+
+    ul.category {
+        display: flex;
+        gap: 1rem;
+        flex-direction: row;
+        list-style: none;
+    }
+
+    #categoryList h2 {
+        display: flex;
+        text-decoration: none;
+        color: var(--white);
+        font-weight: 600;
+        background-color: var(--dark-blue);
+        padding: 1.5rem 4rem;
+        margin: 1rem 0;
+        font-weight: 700;
+        font-size: var(--font-size);
+        
+    }
+
+    #container {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        place-items: center;
+        grid-template-areas: "main";
+        
+    }
+
+    #article {
+        background-color: var(--white);
+    }
+
+}
