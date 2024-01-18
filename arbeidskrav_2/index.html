@@ -7,27 +7,46 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav>
-        </nav>
-    </header>
-        <div id="container">
-            <main>
-                <section>
-                    <ul>
-                        <li><h2>HTML</h2></li>
-                        <li><h2>CSS</h2></li>
-                        <li><h2>JavaScript</h2></li>
-                        <li><h2>React</h2></li>
-                        <li><h2>Sanity and headless CMS</h2></li>
-                    </ul>
-                </section>
-            </main>
-        </div>
+    <div id="container">
+        <main>
+            <section>
+                <button onclick="categoryButton('HTML')">HTML</button>
+                <h3>HTML</h3>
+                <p>HTML står for HyperText Markup Language, og er et strukturspråk som brukes for å lage strukturer til nettside- og applikasjonsgrensesnitt.</p>
+                <ul>
+                    <li><a href="#">W3schools</a></li>
+                    <li><a href="#">HTML Living standard</a></li>
+                    <li><a href="#">HTML.com Tutorials</a></li>
+                </ul>
+            </section>
+        </main>
+    </div>
     <footer>
+
     </footer>
-    <script src="ressurser.js"></script> 
+    <script src="ressurser.js"></script>
+    
     <script>
+        let categoryButton = document.getElementsByTagName("button")
+
+        let categoryClicked = ""
+
+        resources.map(resource => {
+        categoryClicked += `<section>
+            <button onclick="categoryButton('${resource.category}')">${resource.category}</button>
+            <h3>${resource.category}</h3>
+            <p>${resource.text}</p>
+            <ul>`
+
+        resource.sources.map(source => {
+        categoryClicked += `<li><a href="${source.url}">${source.title}</a></li>`
+        })
+
+        categoryClicked += `</ul></section>`
+        })
+
+        const main = document.getElementsByTagName("main")
+        main[0].innerHTML = categoryClicked
     
     </script>
 </body>

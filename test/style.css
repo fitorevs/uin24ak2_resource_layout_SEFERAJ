@@ -13,6 +13,7 @@
     --font: "Montserrat", sans-serif;
     --font-size-h2: 18px;
     --font-size-article: 24px;
+    --font-size-li: 14px;
 }
 
 body {
@@ -109,4 +110,17 @@ footer {
         height: 40vw;
         
     } 
+
+    li {
+        text-align: left;
+        padding-right: 3rem;
+        font-size: var(--font-size-li);
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--blue);
+
+    }
+
 }
