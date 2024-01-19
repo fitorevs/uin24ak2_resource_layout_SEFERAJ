@@ -27,11 +27,61 @@
     <script src="ressurser.js"></script>
     
     <script>
-        let categoryButton = document.getElementsByTagName("button")
+
+        let bookmark = "HTML"
 
         let categoryClicked = ""
 
-        resources.map(resource => {
+        resources.map((resource, index) => { 
+        categoryClicked += `<section>
+            <button onclick="categoryButton('${index}')">${resource.category}</button>
+            </section>`
+        })
+
+        let info = ""
+        resources.map((resource, index) => {
+            if(index!=0) {
+                info += `</section>`
+            info += `<section class="hidden" id="${index}">`} else {
+                info += `</section>`
+            info += `<section class="" id="${index}">`
+            }
+            info += `<h3>${resource.category}</h3>
+            <p>${resource.text}</p>
+            <ul>`
+
+        resource.sources.map(source => {
+        info += `<li><a href="${source.url}">${source.title}</a></li>`
+        })
+
+        info += `</ul></section>`
+        })
+        
+        categoryClicked += info
+
+        const main = document.getElementsByTagName("main")
+        main[0].innerHTML = categoryClicked
+
+        function categoryButton(index) {
+            let categoryClicked = document.getElementById(index)
+            categoryClicked.classList.toggle("hidden")
+            resources.map((resource, index2) => {
+                if (index != index2) {
+                    let categoryClicked = document.getElementById(index2)
+                    categoryClicked.classList.add("hidden")
+                }
+            })
+        }
+    
+    </script>
+</body>
+</html>
+
+<!-- let bookmark = "HTML"
+
+        let categoryClicked = ""
+
+        resources.map(resource => { 
         categoryClicked += `<section>
             <button onclick="categoryButton('${resource.category}')">${resource.category}</button>
             <h3>${resource.category}</h3>
@@ -46,8 +96,4 @@
         })
 
         const main = document.getElementsByTagName("main")
-        main[0].innerHTML = categoryClicked
-    
-    </script>
-</body>
-</html>
+        main[0].innerHTML = categoryClicked-->
