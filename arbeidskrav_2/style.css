@@ -11,10 +11,10 @@
     --white: #fff; 
 
     --font: "Montserrat", sans-serif;
-    --font-size-button: 18px;
-    --font-size-article: 22px;
-    --font-size-p: 16px;
-    --font-size-li: 16px;
+    --font-size-button: 20px;
+    --font-size-article: 24px;
+    --font-size-p: 18px;
+    --font-size-li: 18px;
 }
 
 body {
@@ -27,6 +27,8 @@ main section{
 }
 
 button {
+    display: flex;
+    flex-direction: column;
     background-color: var(--dark-blue);
     border: none;
     color: var(--white);
@@ -76,20 +78,15 @@ section p {
         align-items: center;
     }
     
-    section button {
+    button {
         display: flex;
-        justify-content: center;
+        flex-direction: row;
         width: fit-content;
     }
-
-    main section button {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
+    
     article {
+        width: 100%;
         padding: 2rem;
     }
     
-
 }
