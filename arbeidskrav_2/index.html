@@ -10,14 +10,16 @@
     <div id="container">
         <main>
             <section>
-                <button onclick="categoryButton('HTML')">HTML</button>
-                <h3>HTML</h3>
-                <p>HTML står for HyperText Markup Language, og er et strukturspråk som brukes for å lage strukturer til nettside- og applikasjonsgrensesnitt.</p>
-                <ul>
-                    <li><a href="#">W3schools</a></li>
-                    <li><a href="#">HTML Living standard</a></li>
-                    <li><a href="#">HTML.com Tutorials</a></li>
-                </ul>
+                <button>HTML</button>
+                <article>
+                    <h3>HTML</h3>
+                    <p>HTML står for HyperText Markup Language, og er et strukturspråk som brukes for å lage strukturer til nettside- og applikasjonsgrensesnitt.</p>
+                    <ul>
+                        <li><a href="#">W3schools</a></li>
+                        <li><a href="#">HTML Living standard</a></li>
+                        <li><a href="#">HTML.com Tutorials</a></li>
+                    </ul>
+                </article>
             </section>
         </main>
     </div>
@@ -27,9 +29,6 @@
     <script src="ressurser.js"></script>
     
     <script>
-
-        let bookmark = "HTML"
-
         let categoryClicked = ""
 
         resources.map((resource, index) => { 
@@ -46,7 +45,7 @@
                 info += `</section>`
             info += `<section class="" id="${index}">`
             }
-            info += `<h3>${resource.category}</h3>
+            info += `<article><h3>${resource.category}</h3>
             <p>${resource.text}</p>
             <ul>`
 
@@ -54,7 +53,7 @@
         info += `<li><a href="${source.url}">${source.title}</a></li>`
         })
 
-        info += `</ul></section>`
+        info += `</ul><article></section>`
         })
         
         categoryClicked += info
@@ -76,24 +75,3 @@
     </script>
 </body>
 </html>
-
-<!-- let bookmark = "HTML"
-
-        let categoryClicked = ""
-
-        resources.map(resource => { 
-        categoryClicked += `<section>
-            <button onclick="categoryButton('${resource.category}')">${resource.category}</button>
-            <h3>${resource.category}</h3>
-            <p>${resource.text}</p>
-            <ul>`
-
-        resource.sources.map(source => {
-        categoryClicked += `<li><a href="${source.url}">${source.title}</a></li>`
-        })
-
-        categoryClicked += `</ul></section>`
-        })
-
-        const main = document.getElementsByTagName("main")
-        main[0].innerHTML = categoryClicked-->
