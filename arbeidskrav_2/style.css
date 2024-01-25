@@ -11,37 +11,39 @@
     --white: #fff; 
 
     --font: "Montserrat", sans-serif;
-    --font-size-button: 20px;
-    --font-size-article: 24px;
-    --font-size-p: 18px;
-    --font-size-li: 18px;
+    --font-size-button: 18px;
+    --font-size-h2: 22px;
+    --font-size-p-li: 20px;
 }
 
 body {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
     background-color: var(--light-blue);
     font-family: var(--font);
 }
 
-#container {
-    display: flex;
-    justify-content: center;
-}
-
-main section{
-    margin: 1rem;
+main {
+    background-color: var(--white);
+    padding: 2rem;
+    margin: 2rem;
+    margin-top: 0;
 }
 
 button {
-    background-color: var(--dark-blue);
-    border: none;
-    color: var(--white);
+    display: flex;
     cursor: pointer;
-    font-size: var(--font-size-button);
-    font-weight: 700;
-    
-    padding: 2rem;
-    margin: 0;
+    border: none;
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 900;
+    background-color: var(--dark-blue);
+    padding: 1.5rem;
+    margin: 1rem 0;
     width: 100%;
+    justify-content: center;
+    font-size: var(--font-size-button);  
 }
 
 button:hover {
@@ -49,60 +51,60 @@ button:hover {
     color: var(--dark-blue);
 }
 
-.categoryList {
-    display: flex;
-    flex-direction: row;
-    list-style: none;  
-    padding: 0;
-}
-
-article {
+button.active {
     background-color: var(--white);
-    padding: 1rem;
+    color: var(--dark-blue);
 }
 
-article li a {
+nav ul {
+    margin: 0 auto;
+    width: 100%;        
+    padding: 2rem;
+    text-align: center;
+    list-style: none;
+}
+
+main li a {
     color: var(--blue);
     font-size: var(--font-size-li);
 }
 
-section h3 {
-    font-size: var(--font-size-article);
-    font-weight: 700;
-    margin: 0;
+h2 {
+    font-size: var(--font-size-h2);
+    color: var(--dark-blue);
 }
 
-section p {
-    font-size: var(--font-size-p);
-}
 
-.hidden {
-    display: none;
-}
+@media only screen and (min-width: 500px) {
 
-@media only screen and (min-width: 600px) {
-
-    #container {
+    nav {
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    button {
-        display: flex;
-        flex-direction: row;
-        width: fit-content;
-    }
-    
-    article {
-        width: 100%;
-        padding: 2rem;
+        padding: 7rem;
+        padding-bottom: 0;
     }
 
-    ul.categoryList {
+    nav ul {
         display: flex;
-        flex-direction: row;   
+        flex-wrap: wrap;
+        gap: 1rem;  
+        width: 100%; 
+        margin: 0 auto;
+        text-align: center;
+        padding: 0;
     }
-    
+
+    button{
+        padding: 1.5rem 4rem;
+        margin: auto;
+    }
+
+    main {
+        display: block;
+        width: 84%;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 4rem;
+    }
 }
+
+/*Fikk ikke til å få alt innholdet helt sentrert i desktop, slik det er vist i skissen.

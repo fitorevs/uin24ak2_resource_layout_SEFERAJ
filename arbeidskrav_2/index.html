@@ -11,76 +11,58 @@
 <body>
     <div id="container">
         <nav>
-            <ul class="categoryList">
-                <li>
-                    <button onclick="categoryButton">HTML</button>
-                </li>
+            <ul id="menu">
+                <!-- <li><button>HTML</button></li>
+                <li><button>CSS</button></li>
+                <li><button>JavaScript</button></li>
+                <li><button>React</button></li>
+                <li><button>Sanity and headless CMS</button></li> -->
             </ul>
         </nav>
-        <main>
-            <article>
-                <!-- <h3>HTML</h3>
-                <p>HTML står for HyperText Markup Language, og er et strukturspråk som brukes for å lage strukturer til nettside- og applikasjonsgrensesnitt.</p>
-                <ul>
-                    <li><a href="#">W3schools</a></li>
-                    <li><a href="#">HTML Living standard</a></li>
-                    <li><a href="#">HTML.com Tutorials</a></li>
-                </ul> -->
-            </article>
+        <main id="main">
+            <!-- <h2>HTML</h2>
+            <p>HTML står for HyperText Markup Language, og er et strukturspråk som brukes for å lage strukturer til
+                nettside- og applikasjonsgrensesnitt.</p>
+            <ul>
+                <li><a href="#">W3schools</a></li>
+                <li><a href="#">HTML Living standard</a></li>
+                <li><a href="#">HTML.com Tutorials</a></li>
+            </ul> -->
         </main>
     </div>
-    <footer>
-
-    </footer>
     <script src="ressurser.js"></script>
-
+    <!--Kilde: Fått veiledning av Thor Andreas Holberg-Murtnes, student ved HiOF. 
+        Hjalp til å forstå hvordan innholdet skal dukke opp i de ulike kategoriene.-->
     <script>
-        let categoryClicked = ""
 
-        resources.map((resource, index) => {
-            categoryClicked += `<li>
-            <button onclick="categoryButton('${index}')">${resource.category}</button>
-            </li>`
-        })
-        document.getElementById("categoryList").innerHTML = categoryClicked
-
-        let info = ""
-        resources.map((resource, index) => {
-            if (index != 0) {
-                info += `</section>`
-                info += `<section class="hidden" id="${index}">`
-            } else {
-                info += `</section>`
-                info += `<section class="" id="${index}">`
-            }
-            info += `<article><h3>${resource.category}</h3>
-            <p>${resource.text}</p>
-            <ul>`
-
-            resource.sources.map(source => {
-                info += `<li><a href="${source.url}">${source.title}</a></li>`
-            })
-
-            info += `</ul><article>`
-        })
-
-        categoryClicked += info
-
-        const main = document.getElementsByTagName("main")
-        main[0].innerHTML = categoryClicked
-
-        function categoryButton(index) {
-            let categoryClicked = document.getElementById(index)
-            categoryClicked.classList.toggle("hidden")
-            resources.map((resource, index2) => {
-                if (index != index2) {
-                    let categoryClicked = document.getElementById(index2)
-                    categoryClicked.classList.add("hidden")
-                }
-            })
+        function updateButton(category) {
+            console.log(category)
+            updateUI(category)
         }
+
+        function updateUI(category) {
+            let menu = ""
+            let info = ""
+            const filteredResources = resources.filter(resource => resource.category === category)
+
+            resources.map((resource) => {
+                menu += `<li><button onclick="updateButton('${resource.category}')" class="${resource.category === category ? 'active' : ''}">${resource.category}</button></li>`;
+            })
+
+            filteredResources.map((resource) => {
+                info += `<h2>${resource.category}</h2>
+                <p>${resource.text}</p><ul>`
+                resource.sources.map((source) => {
+                    info += `<li><a href="${source.url}">${source.title}</a></li>`
+                })
+                info += `</ul>`
+            })
+
+            document.getElementById("menu").innerHTML = menu
+            document.getElementById("main").innerHTML = info
+        }
+
+        updateUI("HTML")
 
     </script>
 </body>
-
-</html>
