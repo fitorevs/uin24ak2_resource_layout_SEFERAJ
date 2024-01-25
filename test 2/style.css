@@ -11,47 +11,65 @@
     --white: #fff; 
 
     --font: "Montserrat", sans-serif;
-    --font-size: 16px;
+    --font-size-button: 18px;
+    --font-size-title: 20px;
+    --font-size-p-li: 20px;
 }
 
 body {
     display: flex;
-    min-height: 60vh;
-    margin: 0;
+    margin: 0 auto;
     align-items: center;
     background-color: var(--light-blue);
     font-family: var(--font);
 }
 
-#container {
-    display: flex;
-    justify-content: center;
+main {
+    background-color: var(--white);
+    padding: 2rem;
+    margin: 2rem;
+    margin-top: 0;
 }
 
-main h2 {
+
+nav {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+}
+
+nav button {
+    display: flex;
+    cursor: pointer;
+    border: none;
     text-decoration: none;
     color: var(--white);
     font-weight: 700;
     background-color: var(--dark-blue);
-    padding: 1rem;
-    margin: 2rem;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    width: 100%;
     justify-content: center;
-    font-size: var(--font-size);  
+    font-size: var(--font-size-button);  
 }
 
-main section {
+nav ul {
     margin: 0 auto;
     width: 100%;        
     padding: 2rem;
     text-align: center;
-}
-
-main section ul{
     list-style: none;
 }
 
-main h2:hover {
+main li a {
+    color: var(--blue);
+    font-size: var(--font-size-li);
+}
+
+nav button:hover {
     background-color: var(--white);
     color: var(--dark-blue);
 }
@@ -59,29 +77,37 @@ main h2:hover {
 
 @media only screen and (min-width: 500px) {
 
-    main section {
-        margin: 0 auto;
-        width: 100%;
-        padding: 6rem;
+    nav {
+        display: flex;
+        padding: 7rem;
+        padding-bottom: 0;
     }
 
-    main section ul {
+    nav ul {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
         gap: 1rem;
-        width: 100%;
+        
     }
 
-    section h2{
+    menu {
+        padding-bottom: 0;
+    }
+
+    nav button{
         text-decoration: none;
         color: var(--white);
-        font-weight: 600;
         background-color: var(--dark-blue);
         padding: 1.5rem 4rem;
-        margin: 1rem 0;
+        margin: auto;
         font-weight: 700;
         font-size: var(--font-size);
-        
+    }
+
+    main {
+        display: inline-block;
+        align-items: center; 
+        width: 100%;
+        padding: 5rem;
     }
 }

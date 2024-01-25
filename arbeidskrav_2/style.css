@@ -22,19 +22,23 @@ body {
     font-family: var(--font);
 }
 
+#container {
+    display: flex;
+    justify-content: center;
+}
+
 main section{
     margin: 1rem;
 }
 
 button {
-    display: flex;
-    flex-direction: column;
     background-color: var(--dark-blue);
     border: none;
     color: var(--white);
     cursor: pointer;
     font-size: var(--font-size-button);
     font-weight: 700;
+    
     padding: 2rem;
     margin: 0;
     width: 100%;
@@ -43,6 +47,13 @@ button {
 button:hover {
     background-color: var(--white);
     color: var(--dark-blue);
+}
+
+.categoryList {
+    display: flex;
+    flex-direction: row;
+    list-style: none;  
+    padding: 0;
 }
 
 article {
@@ -87,6 +98,11 @@ section p {
     article {
         width: 100%;
         padding: 2rem;
+    }
+
+    ul.categoryList {
+        display: flex;
+        flex-direction: row;   
     }
     
 }

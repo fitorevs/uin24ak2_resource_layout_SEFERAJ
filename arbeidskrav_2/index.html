@@ -1,61 +1,69 @@
 <!DOCTYPE html>
 <html lang="nb">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ressursarkiv</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div id="container">
+        <nav>
+            <ul class="categoryList">
+                <li>
+                    <button onclick="categoryButton">HTML</button>
+                </li>
+            </ul>
+        </nav>
         <main>
-            <section>
-                <button>HTML</button>
-                <article>
-                    <h3>HTML</h3>
-                    <p>HTML står for HyperText Markup Language, og er et strukturspråk som brukes for å lage strukturer til nettside- og applikasjonsgrensesnitt.</p>
-                    <ul>
-                        <li><a href="#">W3schools</a></li>
-                        <li><a href="#">HTML Living standard</a></li>
-                        <li><a href="#">HTML.com Tutorials</a></li>
-                    </ul>
-                </article>
-            </section>
+            <article>
+                <!-- <h3>HTML</h3>
+                <p>HTML står for HyperText Markup Language, og er et strukturspråk som brukes for å lage strukturer til nettside- og applikasjonsgrensesnitt.</p>
+                <ul>
+                    <li><a href="#">W3schools</a></li>
+                    <li><a href="#">HTML Living standard</a></li>
+                    <li><a href="#">HTML.com Tutorials</a></li>
+                </ul> -->
+            </article>
         </main>
     </div>
     <footer>
 
     </footer>
     <script src="ressurser.js"></script>
-    
+
     <script>
         let categoryClicked = ""
 
-        resources.map((resource, index) => { 
-        categoryClicked += `<section>
+        resources.map((resource, index) => {
+            categoryClicked += `<li>
             <button onclick="categoryButton('${index}')">${resource.category}</button>
-            </section>`
+            </li>`
         })
+        document.getElementById("categoryList").innerHTML = categoryClicked
 
         let info = ""
         resources.map((resource, index) => {
-            if(index!=0) {
+            if (index != 0) {
                 info += `</section>`
-            info += `<section class="hidden" id="${index}">`} else {
+                info += `<section class="hidden" id="${index}">`
+            } else {
                 info += `</section>`
-            info += `<section class="" id="${index}">`
+                info += `<section class="" id="${index}">`
             }
             info += `<article><h3>${resource.category}</h3>
             <p>${resource.text}</p>
             <ul>`
 
-        resource.sources.map(source => {
-        info += `<li><a href="${source.url}">${source.title}</a></li>`
+            resource.sources.map(source => {
+                info += `<li><a href="${source.url}">${source.title}</a></li>`
+            })
+
+            info += `</ul><article>`
         })
 
-        info += `</ul><article></section>`
-        })
-        
         categoryClicked += info
 
         const main = document.getElementsByTagName("main")
@@ -71,7 +79,8 @@
                 }
             })
         }
-    
+
     </script>
 </body>
+
 </html>
